@@ -5,7 +5,8 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LFUCache(BaseCaching):
-    """A Least Frequently Used (LFU) caching system that inherits from BaseCaching."""
+    """A Least Frequently Used (LFU) caching system
+    that inherits from BaseCaching."""
     # Initialize the cache
     def __init__(self):
         """Initializes the LFU cache."""
