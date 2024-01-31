@@ -5,8 +5,10 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LFUCache(BaseCaching):
+    """A Least Frequently Used (LFU) caching system that inherits from BaseCaching."""
     # Initialize the cache
     def __init__(self):
+        """Initializes the LFU cache."""
         # Call the parent init
         super().__init__()
         # Create a dictionary to store the frequencies of the keys
@@ -18,6 +20,7 @@ class LFUCache(BaseCaching):
 
     # Add an item to the cache using LFU strategy
     def put(self, key, item):
+        """Adds an item to the LFU cache using LFU strategy"""
         # If key or item is None, do nothing
         if key is None or item is None:
             return
@@ -69,6 +72,7 @@ class LFUCache(BaseCaching):
 
     # Retrieve an item from the cache
     def get(self, key):
+        """Retrieves an item from the LFU cache."""
         # If key is None or not in the cache, return None
         if key is None or key not in self.cache_data:
             return None
