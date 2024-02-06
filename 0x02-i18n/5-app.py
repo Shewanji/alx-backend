@@ -30,11 +30,17 @@ users = {
 }
 
 
-def get_user(user_id: int) -> dict or None:
+def get_user():
     """
     Get user details from the user database
     """
-    return users.get(user_id)
+    user_id = request.args.get("login_as")
+    if not user_id:
+        return None
+    for id, user in users.items():
+        if id == int(user_id):
+            return user
+    return None
 
 
 @app.before_request
@@ -43,8 +49,7 @@ def before_request():
     Function to be executed before all other functions
     Finds the user if logged in and sets it as a global on flask.g.user
     """
-    user_id = int(request.args.get('login_as', 0))
-    g.user = get_user(user_id)
+    g.user = get_user()
 
 
 @babel.localeselector
