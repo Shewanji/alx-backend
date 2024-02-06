@@ -4,8 +4,9 @@ Basic Flask app
 """
 
 from flask import Flask, render_template, request, g
-from flask_babel import Babel
+from flask_babel import Babel, format_time
 import pytz
+from datetime import datetime
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -89,4 +90,5 @@ def greet() -> str:
     Returns:
         str: Rendered HTML content
     """
-    return render_template('7-index.html', user=g.user)
+    time = datetime.utcnow()
+    return render_template('index.html', user=g.user, time=time)
