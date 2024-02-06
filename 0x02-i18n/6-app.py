@@ -59,8 +59,10 @@ def get_locale():
     """
     if 'locale' in request.args and request.args['locale'] in Config.LANGUAGES:
         return request.args['locale']
+    elif g.user and g.user['locale'] in Config.LANGUAGES:
+        return g.user['locale']
     else:
-        return request.accept_languages.best_match(app.config["LANGUAGES"])
+        return request.accept_languages.best_match(Config.LANGUAGES)
 
 
 @app.route('/')
@@ -71,4 +73,4 @@ def greet() -> str:
     Returns:
         str: Rendered HTML content
     """
-    return render_template('5-index.html')
+    return render_template('6-index.html')
