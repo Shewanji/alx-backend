@@ -73,4 +73,4 @@ def greet() -> str:
     Returns:
         str: Rendered HTML content
     """
-    return render_template('6-index.html')
+    return render_template('6-index.html', user=g.user)

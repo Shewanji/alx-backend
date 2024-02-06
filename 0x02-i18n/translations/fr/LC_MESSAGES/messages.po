@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-06 20:27+0000\n"
-"PO-Revision-Date: 2024-02-06 20:28+0000\n"
+"POT-Creation-Date: 2024-02-06 20:56+0000\n"
+"PO-Revision-Date: 2024-02-06 20:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -19,21 +19,22 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 
 #: templates/3-index.html:4 templates/4-index.html:4 templates/5-index.html:4
-#: templates/6-index.html:4
+#: templates/6-index.html:4 templates/7-index.html:4
 msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
 #: templates/3-index.html:7 templates/4-index.html:7 templates/5-index.html:7
-#: templates/6-index.html:7
+#: templates/6-index.html:7 templates/7-index.html:7
 msgid "home_header"
 msgstr "Bonjour monde!"
 
-#: templates/5-index.html:9 templates/6-index.html:9
+#: templates/5-index.html:9 templates/6-index.html:9 templates/7-index.html:9
 #, python-format
 msgid "You are logged in as %(username)s."
 msgstr "Vous êtes connecté en tant que %(username)s."
 
 #: templates/5-index.html:11 templates/6-index.html:11
+#: templates/7-index.html:11
 msgid "You are not logged in."
 msgstr "Vous n'êtes pas connecté."
 

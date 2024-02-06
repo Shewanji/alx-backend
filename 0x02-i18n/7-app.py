@@ -5,6 +5,7 @@ Basic Flask app
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
+import pytz
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -59,8 +60,25 @@ def get_locale():
     """
     if 'locale' in request.args and request.args['locale'] in Config.LANGUAGES:
         return request.args['locale']
+    elif g.user and g.user['locale'] in Config.LANGUAGES:
+        return g.user['locale']
     else:
-        return request.accept_languages.best_match(app.config["LANGUAGES"])
+        return request.accept_languages.best_match(Config.LANGUAGES)
+
+
+@babel.timezoneselector
+def get_timezone():
+    """determines the timezone to be used"""
+    url_timezone = request.args.get("timezone")
+    if url_timezone:
+        try:
+            pytz.timezone(url_timezone)
+            return url_timezone
+        except pytz.exceptions.UnknownTimeZoneError:
+            pass
+    if g.user and g.user.get("timezone"):
+        return g.user.get("timezone")
+    return Config.BABEL_DEFAULT_TIMEZONE
 
 
 @app.route('/')
@@ -71,4 +89,4 @@ def greet() -> str:
     Returns:
         str: Rendered HTML content
     """
-    return render_template('5-index.html', user=g.user)
+    return render_template('6-index.html', user=g.user)
