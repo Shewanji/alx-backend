@@ -66,4 +66,4 @@ def greet() -> str:
     Returns:
         str: Rendered HTML content
     """
-    return render_template('3-index.html')
+    return render_template('5-index.html')
